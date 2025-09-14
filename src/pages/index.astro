@@ -1,9 +1,13 @@
 ---
+import projects from "../data/projects.json";
 import BaseLayout from "../layouts/baseLayout.astro";
 import Presentation from "../components/home/Presentation.astro";
 import Socials from "../components/home/Socials.astro";
+import ProjectCard from "../components/startup/ProjectCard.astro";
+import Button from "../components/ui/Button.astro";
 const description =
   "En mi tiempo libre disfruto entrenando en el gimnasio, compartiendo momentos con amigos y desarrollando proyectos. Creo que el equilibrio entre cuidarse, aprender y divertirse es fundamental. Aquí comparto detalles de mi día a día.";
+const filteredProjects = projects.slice(0, 3);
 ---
 
 <BaseLayout>
@@ -12,40 +16,43 @@ const description =
     <section id="startup" class="flex flex-col gap-5">
       <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
         Start up
-      </h2><p class="font-normal text-base sm:text-xl xl:text-2xl">
+      </h2><p class="font-light text-base sm:text-xl xl:text-2xl">
         Construyendo ideas • Aprendiendo del proceso • Compartiendo con el
         mundo.
       </p>
-      <a
-        href="/startup"
-        class="self-center font-semibold bg-black px-8 py-4 text-white rounded-2xl"
-        >Ver los momentos</a
-      >
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {filteredProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+      <Button
+        url="/startup"
+        styles="self-center px-8 py-4 bg-black  font-semibold rounded-2xl hover:outline hover:bg-white bg-neutral-200 text-black"
+        label="Ver los proyectos"
+      />
     </section>
     <section id="momentos" class="flex flex-col gap-5">
       <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
         Momentos
-      </h2><p class="font-normal text-base sm:text-xl xl:text-2xl">
+      </h2><p class="font-light text-base sm:text-xl xl:text-2xl">
         Un espacio donde comparto instantes de mi vida.
       </p>
-      <a
-        href="/startup"
-        class="self-center font-semibold bg-black px-8 py-4 text-white rounded-2xl"
-        >Ver los proyectos</a
-      >
+      <Button
+        url="/momentos"
+        styles="self-center px-8 py-4 bg-black  font-semibold rounded-2xl hover:outline hover:bg-white bg-neutral-200 text-black"
+        label="Ver los momentos"
+      />
     </section>
     <section id="recomendaciones" class="flex flex-col gap-5">
       <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
         Recomendaciones
-      </h2><p class="font-normal text-base sm:text-xl xl:text-2xl">
+      </h2><p class="font-light text-base sm:text-xl xl:text-2xl">
         Un rincón de inspiración y entretenimiento: series, películas,libros y
         posts, para que siempre tengas algo interesante que disfrutar.
       </p>
-      <a
-        href="/recomendaciones"
-        class="self-center font-semibold bg-black px-8 py-4 text-white rounded-2xl"
-        >Ver las recomendaciones</a
-      >
+      <Button
+        url="/recomendaciones"
+        styles="self-center px-8 py-4 bg-black  font-semibold rounded-2xl hover:outline hover:bg-white bg-neutral-200 text-black"
+        label="Ver las recomendaciones"
+      />
     </section>
     <Socials />
   </div>

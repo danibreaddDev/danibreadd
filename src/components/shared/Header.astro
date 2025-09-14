@@ -1,6 +1,21 @@
 ---
 const url = Astro.url.pathname;
 const styleCurrentPath = "bg-neutral-200 font-semibold px-3 py-2 rounded-2xl ";
+const paths = [
+  {
+    url: "/",
+    label: "Home",
+  },
+  {
+    url: "/momentos",
+    label: "Momentos",
+  },
+  { url: "/startup", label: "Start up" },
+  {
+    url: "/recomendaciones",
+    label: "Recomendaciones",
+  },
+];
 ---
 
 <header
@@ -18,22 +33,17 @@ const styleCurrentPath = "bg-neutral-200 font-semibold px-3 py-2 rounded-2xl ";
 
       <!-- Menu Escritorio -->
       <ul class="hidden md:flex flex-row items-center gap-5">
-        <li class=`${url ==='/' ? styleCurrentPath:''}`>
-          <a href="/">Home</a>
+        {
+          paths.map((path)=>(
+        <li class=`${path.url ===url ? styleCurrentPath:''}`>
+          <a href={path.url}>{path.label}</a>
         </li>
-        <li class=`${url ==='/momentos' ? styleCurrentPath:''}`>
-          <a href="/momentos">Momentos</a>
-        </li>
-        <li class=`${url ==='/startup' ? styleCurrentPath:''}`>
-          <a href="/startup">Start up</a>
-        </li>
-        <li class=`${url ==='/recomendaciones' ? styleCurrentPath:''}`>
-          <a href="/recomendaciones">Recomendaciones</a>
-        </li>
+          ))
+        }
       </ul>
 
       <!-- Botón móvil -->
-      <button id="menuBtn" class="md:hidden">
+      <button id="menuBtn" class="md:hidden cursor-pointer">
         <svg
           id="icon-open"
           xmlns="http://www.w3.org/2000/svg"
@@ -67,18 +77,13 @@ const styleCurrentPath = "bg-neutral-200 font-semibold px-3 py-2 rounded-2xl ";
 
     <!-- Menu movil -->
     <ul id="navMobile" class="hidden md:hidden w-full flex-col gap-5">
-      <li class=`${url ==='/' ? styleCurrentPath:''}`>
-        <a href="/">Home</a>
-      </li>
-      <li class=`${url ==='/momentos' ? styleCurrentPath:''}`>
-        <a href="/momentos">Momentos</a>
-      </li>
-      <li class=`${url ==='/startup' ? styleCurrentPath:''}`>
-        <a href="/startup">Start up</a>
-      </li>
-      <li class=`${url ==='/recomendaciones' ? styleCurrentPath:''}`>
-        <a href="/recomendaciones">Recomendaciones</a>
-      </li>
+      {
+          paths.map((path)=>(
+        <li class=`${path.url ===url ? styleCurrentPath:''}`>
+          <a href={path.url}>{path.label}</a>
+        </li>
+          ))
+        }
     </ul>
   </nav>
 </header>

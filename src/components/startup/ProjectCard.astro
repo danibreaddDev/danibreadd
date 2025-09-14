@@ -1,32 +1,57 @@
 ---
-interface Props {
+interface Project {
+  slug: string;
   img: string;
   title: string;
   short_description: string;
   url: string;
 }
-const { img, title, short_description, url } = Astro.props;
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+const projectsPath = "/images/projects/";
 ---
 
-<article class="border-2 border-black overflow-hidden">
-  <img src={img + ".png"} alt={title} class="object-contain" />
+<article class="border-4 border-black overflow-hidden">
+  <img
+    src={projectsPath + project.img + ".png"}
+    alt={project.title}
+    class="object-contain"
+  />
   <div class="p-5 flex flex-col gap-5">
     <h2
       class="font-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
     >
-      {title}
+      {project.title}
     </h2>
     <p class="font-normal text-base">
-      {short_description}
+      {project.short_description}
     </p>
-    <div class="flex flex-row gap-5 items-center">
+    <div class="flex flex-row flex-wrap gap-5 items-center">
       <a
-        href={url}
+        href={"/startup/" + project.slug}
         class="bg-neutral-200 px-2 py-1 rounded-2xl flex flex-row gap-2 items-center"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
+          class="size-6"
+          viewBox="0 0 24 24"
+          ><g fill="none" stroke="#000" stroke-width="1.5"
+            ><path
+              d="M2.906 17.505L5.337 3.718a2 2 0 0 1 2.317-1.623L19.472 4.18a2 2 0 0 1 1.622 2.317l-2.431 13.787a2 2 0 0 1-2.317 1.623L4.528 19.822a2 2 0 0 1-1.622-2.317Z"
+            ></path><path
+              stroke-linecap="round"
+              d="m8.929 6.382l7.879 1.389m-8.574 2.55l7.879 1.39M7.54 14.26l4.924.869"
+            ></path></g
+          ></svg
+        ><span>Leer más</span></a
+      >
+      <a
+        href={project.url}
+        class="bg-neutral-200 px-2 py-1 rounded-2xl flex flex-row gap-2 items-center"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="size-6"
           viewBox="0 0 24 24"
           ><g fill="#000"
             ><path
@@ -40,6 +65,7 @@ const { img, title, short_description, url } = Astro.props;
     </div>
   </div>
 </article>
+
 <style>
   a {
     height: fit-content;

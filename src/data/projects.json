@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "lockeleague",
+    "title": "LockeLeague",
+    "short_description": "Plataforma web dedicada para jugar lockes de Pokemon de manera multijugador.",
+    "url": "",
+    "img": "lockeleague"
+  },
+  {
+    "slug": "resonify",
+    "title": "Resonify",
+    "short_description": "Plataforma web dedicada para visualizar tu wrap de spotify.",
+    "url": "https://resonify.vercel.app/",
+    "img": "resonify"
+  }
+]
