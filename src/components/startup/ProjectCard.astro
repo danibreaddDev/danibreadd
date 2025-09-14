@@ -1,0 +1,52 @@
+---
+interface Props {
+  img: string;
+  title: string;
+  short_description: string;
+  url: string;
+}
+const { img, title, short_description, url } = Astro.props;
+---
+
+<article class="border-2 border-black overflow-hidden">
+  <img src={img + ".png"} alt={title} class="object-contain" />
+  <div class="p-5 flex flex-col gap-5">
+    <h2
+      class="font-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+    >
+      {title}
+    </h2>
+    <p class="font-normal text-base">
+      {short_description}
+    </p>
+    <div class="flex flex-row gap-5 items-center">
+      <a
+        href={url}
+        class="bg-neutral-200 px-2 py-1 rounded-2xl flex flex-row gap-2 items-center"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          ><g fill="#000"
+            ><path
+              d="M14.372 3.58c1.708-1.709 4.465-1.799 6.156-.108s1.601 4.448-.107 6.156l-3.902 3.902a.75.75 0 1 1-1.06-1.06l3.901-3.902c1.165-1.165 1.171-2.971.107-4.035c-1.063-1.064-2.87-1.058-4.035.107L11.53 8.542a.75.75 0 0 1-1.06-1.06zm1.158 4.89a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 0 1-1.06-1.06l6-6a.75.75 0 0 1 1.06 0"
+            ></path><path
+              d="M8.555 11.531a.75.75 0 0 0-1.06-1.062L3.604 14.35c-1.703 1.698-1.862 4.296-.12 6.118c1.783 1.863 4.477 1.578 6.154-.094l3.892-3.881a.75.75 0 1 0-1.06-1.062L8.58 19.31c-1.189 1.186-2.908 1.272-4.01.12a3 3 0 0 1-.191-.217c-.939-1.172-.81-2.71.285-3.802z"
+            ></path></g
+          ></svg
+        ><span>web</span></a
+      >
+    </div>
+  </div>
+</article>
+<style>
+  a {
+    height: fit-content;
+    background: var(--color-neutral-200);
+    &:hover {
+      outline: 1px solid var(--color-neutral-500);
+      background: var(--color-neutral-100);
+    }
+  }
+</style>

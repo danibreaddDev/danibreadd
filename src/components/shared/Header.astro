@@ -1,0 +1,108 @@
+---
+const url = Astro.url.pathname;
+const styleCurrentPath = "bg-neutral-200 font-semibold px-3 py-2 rounded-2xl ";
+---
+
+<header
+  class="fixed top-0 z-50 w-full backdrop-blur-md border-b border-slate-400 font-primary"
+>
+  <nav class="container mx-auto max-w-6xl p-2">
+    <div class="flex justify-between items-center">
+      <a href="/">
+        <img
+          src="/images/logo.png"
+          alt="logo_danibreadd"
+          class="size-16 object-contain"
+        />
+      </a>
+
+      <!-- Menu Escritorio -->
+      <ul class="hidden md:flex flex-row items-center gap-5">
+        <li class=`${url ==='/' ? styleCurrentPath:''}`>
+          <a href="/">Home</a>
+        </li>
+        <li class=`${url ==='/momentos' ? styleCurrentPath:''}`>
+          <a href="/momentos">Momentos</a>
+        </li>
+        <li class=`${url ==='/startup' ? styleCurrentPath:''}`>
+          <a href="/startup">Start up</a>
+        </li>
+        <li class=`${url ==='/recomendaciones' ? styleCurrentPath:''}`>
+          <a href="/recomendaciones">Recomendaciones</a>
+        </li>
+      </ul>
+
+      <!-- Botón móvil -->
+      <button id="menuBtn" class="md:hidden">
+        <svg
+          id="icon-open"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 20 20"
+          class="block"
+        >
+          <path
+            fill="#000"
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1"
+            clip-rule="evenodd"></path>
+        </svg>
+
+        <svg
+          id="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 16 16"
+          class="hidden"
+        >
+          <path
+            fill="#000"
+            d="m3.5 2.086l4.5 4.5l4.5-4.5L13.914 3.5L9.414 8l4.5 4.5l-1.414 1.414l-4.5-4.5l-4.5 4.5L2.086 12.5l4.5-4.5l-4.5-4.5z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu movil -->
+    <ul id="navMobile" class="hidden md:hidden w-full flex-col gap-5">
+      <li class=`${url ==='/' ? styleCurrentPath:''}`>
+        <a href="/">Home</a>
+      </li>
+      <li class=`${url ==='/momentos' ? styleCurrentPath:''}`>
+        <a href="/momentos">Momentos</a>
+      </li>
+      <li class=`${url ==='/startup' ? styleCurrentPath:''}`>
+        <a href="/startup">Start up</a>
+      </li>
+      <li class=`${url ==='/recomendaciones' ? styleCurrentPath:''}`>
+        <a href="/recomendaciones">Recomendaciones</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<style is:raw>
+  a:hover {
+    font-weight: var(--font-weight-semibold);
+  }
+</style>
+<script is:inline>
+  if (typeof window !== "undefined") {
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target.closest("#menuBtn")) {
+        const navMobile = document.getElementById("navMobile");
+        const iconOpen = document.getElementById("icon-open");
+        const iconClose = document.getElementById("icon-close");
+
+        if (!navMobile || !iconOpen || !iconClose) return;
+
+        navMobile.classList.toggle("hidden");
+        navMobile.classList.toggle("flex");
+        iconOpen.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+      }
+    });
+  }
+</script>

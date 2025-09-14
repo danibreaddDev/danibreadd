@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import CommonHead from "../components/shared/CommonHead.astro";
+import Header from "../components/shared/Header.astro";
+import Footer from "../components/shared/Footer.astro";
+---
+
+<html lang="es" transition:animate="fade">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <CommonHead />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Header />
+    <main class="py-24 px-5 sm:px-12 xl:px-0 container mx-auto max-w-6xl p-2">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/baseLayout.astro";
+import ProjectCard from "../../components/startup/ProjectCard.astro";
+const projectsPath = "/images/projects/";
+const projects = [
+  {
+    title: "LockeLeague",
+    short_description:
+      "Plataforma web dedicada para jugar lockes de Pokemon de manera multijugador.",
+    url: "",
+    img: projectsPath + "lockeleague",
+  },
+];
+---
+
+<BaseLayout>
+  <div class="flex flex-col gap-10 font-secondary">
+    <div class="flex flex-col gap-5">
+      <h1
+        class="font-primary text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black"
+      >
+        Proyectos
+      </h1>
+      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-medium">
+        Aplicaciones con las que aprendo día a día sobre programación web,
+        resolviendo problemas cotidianos y mejorando experiencias.
+      </p>
+    </div>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            short_description={project.short_description}
+            url={project.url}
+            img={project.img}
+          />
+        ))
+      }
+    </section>
+  </div></BaseLayout
+>

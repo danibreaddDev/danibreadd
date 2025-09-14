@@ -1,16 +1,52 @@
 ---
-
+import BaseLayout from "../layouts/baseLayout.astro";
+import Presentation from "../components/home/Presentation.astro";
+import Socials from "../components/home/Socials.astro";
+const description =
+  "En mi tiempo libre disfruto entrenando en el gimnasio, compartiendo momentos con amigos y desarrollando proyectos. Creo que el equilibrio entre cuidarse, aprender y divertirse es fundamental. Aquí comparto detalles de mi día a día.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <div class="flex flex-col gap-20 font-secondary">
+    <Presentation developer="Danibreadd" description={description} />
+    <section id="startup" class="flex flex-col gap-5">
+      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
+        Start up
+      </h2><p class="font-normal text-base sm:text-xl xl:text-2xl">
+        Construyendo ideas • Aprendiendo del proceso • Compartiendo con el
+        mundo.
+      </p>
+      <a
+        href="/startup"
+        class="self-center font-semibold bg-black px-8 py-4 text-white rounded-2xl"
+        >Ver los momentos</a
+      >
+    </section>
+    <section id="momentos" class="flex flex-col gap-5">
+      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
+        Momentos
+      </h2><p class="font-normal text-base sm:text-xl xl:text-2xl">
+        Un espacio donde comparto instantes de mi vida.
+      </p>
+      <a
+        href="/startup"
+        class="self-center font-semibold bg-black px-8 py-4 text-white rounded-2xl"
+        >Ver los proyectos</a
+      >
+    </section>
+    <section id="recomendaciones" class="flex flex-col gap-5">
+      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
+        Recomendaciones
+      </h2><p class="font-normal text-base sm:text-xl xl:text-2xl">
+        Un rincón de inspiración y entretenimiento: series, películas,libros y
+        posts, para que siempre tengas algo interesante que disfrutar.
+      </p>
+      <a
+        href="/recomendaciones"
+        class="self-center font-semibold bg-black px-8 py-4 text-white rounded-2xl"
+        >Ver las recomendaciones</a
+      >
+    </section>
+    <Socials />
+  </div>
+</BaseLayout>
