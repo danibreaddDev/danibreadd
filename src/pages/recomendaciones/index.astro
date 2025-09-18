@@ -1,5 +1,18 @@
 ---
+import RecommendationCard from "../../components/recomendaciones/RecommendationCard.astro";
+import { GET as getCategorias } from "../api/categorias";
 import BaseLayout from "../../layouts/baseLayout.astro";
+import type { iRecomendacion } from "../../lib/interfaces/recomendacion";
+import type { iCategory } from "../../lib/interfaces/category";
+const categoriaRes = await getCategorias(Astro);
+let categorias: iCategory[] = await categoriaRes.json();
+const categoria = new URL(Astro.url).searchParams.get("categoria") ?? "all";
+const recomendacionesRes = await fetch(
+  categoria
+    ? `http://localhost:4321/api/recomendaciones?categoria=${categoria}`
+    : "http://localhost:4321/api/recomendaciones"
+);
+const recomendaciones: iRecomendacion[] = await recomendacionesRes.json();
 ---
 
 <BaseLayout>
@@ -18,5 +31,49 @@ import BaseLayout from "../../layouts/baseLayout.astro";
         tú también.
       </p>
     </div>
+    <div class="flex flex-col gap-5">
+      <h2
+        class="font-primary text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light"
+      >
+        Categorías
+      </h2>
+      <form method="GET">
+        <select
+          name="categoria"
+          onchange="this.form.submit()"
+          class="cursor-pointer px-2 py-1 rounded w-full outline outline-neutral-300"
+        >
+          <option value="all">Todos</option>
+          {
+            categorias.map((c: iCategory) => (
+              <option value={c.id} selected={categoria === c.id.toString()}>
+                {c.nombre}
+              </option>
+            ))
+          }
+        </select>
+      </form>
+    </div>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {
+        recomendaciones.length === 0 ? (
+          <div class="col-span-full flex justify-center">
+            <h3 class="font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+              No existen recomendaciones.
+            </h3>
+          </div>
+        ) : (
+          recomendaciones.map((recomendacion: iRecomendacion) => (
+            <RecommendationCard {recomendacion} />
+          ))
+        )
+      }
+    </section>
   </div>
 </BaseLayout>
+<style is:inline>
+  option {
+    font-weight: var(--font-weight-bold);
+    text-transform: capitalize;
+  }
+</style>
