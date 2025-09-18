@@ -1,5 +1,9 @@
 ---
+import ExperienceCard from "../../components/experience/ExperienceCard.astro";
+import experience from "../../data/experience.json";
 import BaseLayout from "../../layouts/baseLayout.astro";
+import type { iExperience } from "../../lib/interfaces/experience";
+const experiences: iExperience[] = experience;
 ---
 
 <BaseLayout>
@@ -10,9 +14,16 @@ import BaseLayout from "../../layouts/baseLayout.astro";
       >
         Experiencia
       </h1>
-      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-medium">
+      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-normal">
         Aquí comparto la experiencia que tengo en el sector.
       </p>
     </div>
+    <section class="grid grid-cols-1">
+      {
+        experiences.map((exp: iExperience) => (
+          <ExperienceCard experience={exp} />
+        ))
+      }
+    </section>
   </div>
 </BaseLayout>

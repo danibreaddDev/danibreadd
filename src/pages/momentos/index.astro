@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/baseLayout.astro";
+const momentos = [];
 ---
 
 <BaseLayout>
@@ -10,9 +11,22 @@ import BaseLayout from "../../layouts/baseLayout.astro";
       >
         Momentos
       </h1>
-      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-medium">
+      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-normal">
         Un espacio para compartir instantes y recopilaciones del día a día.
       </p>
     </div>
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      {
+        momentos.length === 0 ? (
+          <div class="col-span-full flex justify-center">
+            <h3 class="font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+              No hay momentos disponibles.
+            </h3>
+          </div>
+        ) : (
+          <div />
+        )
+      }
+    </section>
   </div>
 </BaseLayout>

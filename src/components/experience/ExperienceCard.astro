@@ -1,0 +1,71 @@
+---
+import type { iExperience } from "../../lib/interfaces/experience";
+
+interface Props {
+  experience: iExperience;
+}
+const { experience } = Astro.props;
+---
+
+<article class="bg-neutral-50 flex flex-col">
+  <input type="checkbox" id={`toggle-${experience.slug}`} class="peer hidden" />
+
+  <label
+    for={`toggle-${experience.slug}`}
+    class="p-5 flex flex-row gap-5 items-center sm:justify-between cursor-pointer border border-neutral-300 bg-neutral-200 hover:bg-white"
+  >
+    <div
+      class="flex flex-row flex-wrap justify-center sm:flex-nowrap sm:justify-baseline items-center gap-5 w-full sm:w-auto"
+    >
+      <div
+        class="flex flex-row gap-2 flex-wrap-reverse items-center md:w-72 text-black text-sm lg:text-base"
+      >
+        <span
+          class="px-3 py-2 bg-neutral-100 outline outline-neutral-300 font-medium"
+        >
+          {experience.startDate}
+        </span>
+        <span
+          class="px-3 py-2 bg-neutral-100 outline outline-neutral-300 font-medium"
+        >
+          {experience.duration}
+        </span>
+      </div>
+      <h3
+        class="font-black font-primary text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+      >
+        {experience.position}
+      </h3>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-10 hidden sm:flex"
+      viewBox="0 0 24 24"
+      ><path
+        fill="#000"
+        d="M3 3h6v2H5v4H3zm0 18h6v-2H5v-4H3zm12 0h6v-6h-2v4h-4zm6-18h-6v2h4v4h2z"
+      ></path></svg
+    >
+  </label>
+
+  <section
+    class="hidden border-x border-x-neutral-300 content p-5 flex-col gap-5 peer-checked:max-h-[1000px] peer-checked:flex"
+  >
+    <span
+      class="font-bold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+    >
+      {experience.company}
+    </span>
+    <p class="font-normal">{experience.descriptionJob}</p>
+    <div class="flex flex-row flex-wrap gap-2 items-center">
+      {
+        experience.technologies.map((t) => (
+          <span class="px-2 py-1 rounded-xl outline outline-neutral-300 bg-neutral-100 font-medium">
+            {t}
+          </span>
+        ))
+      }
+    </div>
+  </section>
+</article>

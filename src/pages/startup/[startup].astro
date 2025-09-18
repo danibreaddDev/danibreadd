@@ -1,6 +1,7 @@
 ---
 import projects from "../../data/projects.json";
 import BaseLayout from "../../layouts/baseLayout.astro";
+export const prerender = true;
 export function getStaticPaths() {
   return projects.map((project) => {
     return {

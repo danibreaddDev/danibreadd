@@ -23,12 +23,11 @@ const recomendaciones: iRecomendacion[] = await recomendacionesRes.json();
       >
         Recomendaciones
       </h1>
-      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-medium">
+      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-normal">
         Aquí comparto recomendaciones de series, películas y libros que me han
         atrapado últimamente. Son mis favoritos, los que me han hecho reír,
         reflexionar o simplemente desconectar. Espero que encuentres algo que te
-        guste tanto como a mí… y si te animas, cuéntame qué estás descubriendo
-        tú también.
+        guste tanto como a mí…
       </p>
     </div>
     <div class="flex flex-col gap-5">
@@ -59,7 +58,7 @@ const recomendaciones: iRecomendacion[] = await recomendacionesRes.json();
         recomendaciones.length === 0 ? (
           <div class="col-span-full flex justify-center">
             <h3 class="font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
-              No existen recomendaciones.
+              No hay recomendaciones disponibles.
             </h3>
           </div>
         ) : (
