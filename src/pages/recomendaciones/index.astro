@@ -1,18 +1,37 @@
 ---
 import RecommendationCard from "../../components/recomendaciones/RecommendationCard.astro";
-import { GET as getCategorias } from "../api/categorias";
+import { actions } from "astro:actions";
 import BaseLayout from "../../layouts/baseLayout.astro";
 import type { iRecomendacion } from "../../lib/interfaces/recomendacion";
-import type { iCategory } from "../../lib/interfaces/category";
-const categoriaRes = await getCategorias(Astro);
-let categorias: iCategory[] = await categoriaRes.json();
-const categoria = new URL(Astro.url).searchParams.get("categoria") ?? "all";
-const recomendacionesRes = await fetch(
-  categoria
-    ? `http://localhost:4321/api/recomendaciones?categoria=${categoria}`
-    : "http://localhost:4321/api/recomendaciones"
-);
-const recomendaciones: iRecomendacion[] = await recomendacionesRes.json();
+
+let categorias: any[] = [];
+const { data: a_categorias, error: errorGettingCategorias } =
+  await Astro.callAction(actions.categorias.getCategorias, {});
+if (!errorGettingCategorias) {
+  categorias = a_categorias.data;
+}
+let recomendaciones: iRecomendacion[] = [];
+let { data: a_recomendaciones, error: errorGettingRecomendaciones } =
+  await Astro.callAction(actions.recomendaciones.getRecomendaciones, {});
+if (a_recomendaciones) {
+  if (!errorGettingRecomendaciones) {
+    recomendaciones = a_recomendaciones.recomendaciones;
+  }
+}
+
+if (Astro.request.method === "POST") {
+  const form = await Astro.request.formData();
+  console.log(form);
+
+  const { data, error } = await Astro.callAction(
+    actions.recomendaciones.filtrarRecomendaciones,
+    form
+  );
+
+  if (!error) {
+    recomendaciones = data.recomendaciones;
+  }
+}
 ---
 
 <BaseLayout>
@@ -36,22 +55,28 @@ const recomendaciones: iRecomendacion[] = await recomendacionesRes.json();
       >
         Categorías
       </h2>
-      <form method="GET">
-        <select
-          name="categoria"
-          onchange="this.form.submit()"
-          class="cursor-pointer px-2 py-1 rounded w-full outline outline-neutral-300"
-        >
-          <option value="all">Todos</option>
-          {
-            categorias.map((c: iCategory) => (
-              <option value={c.id} selected={categoria === c.id.toString()}>
+      <div class="flex flex-row flex-wrap gap-5">
+        <form method="POST">
+          <input type="hidden" value="all" />
+          <button
+            class="option px-8 py-4 font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
+            type="submit">Todos</button
+          >
+        </form>
+        {
+          categorias.map((c) => (
+            <form method="POST">
+              <input type="hidden" value={c.id} name="category" />
+              <button
+                class="option px-8 py-4 font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
+                type="submit"
+              >
                 {c.nombre}
-              </option>
-            ))
-          }
-        </select>
-      </form>
+              </button>
+            </form>
+          ))
+        }
+      </div>
     </div>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-5">
       {
@@ -71,7 +96,10 @@ const recomendaciones: iRecomendacion[] = await recomendacionesRes.json();
   </div>
 </BaseLayout>
 <style is:inline>
-  option {
+  button {
+    cursor: pointer;
+  }
+  .option {
     font-weight: var(--font-weight-bold);
     text-transform: capitalize;
   }
