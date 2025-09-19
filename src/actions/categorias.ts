@@ -1,6 +1,7 @@
 import { ActionError, defineAction } from "astro:actions";
 import type { iRecomendacion } from "../lib/interfaces/recomendacion";
 import { supabase } from "../lib/supabase";
+import type { iCategory } from "../lib/interfaces/category";
 export const categorias = {
   getCategorias: defineAction({
     handler: async () => {
@@ -12,7 +13,8 @@ export const categorias = {
           message: "Error obteniendo las categorias",
         });
       }
-      return { data, error };
+      const categories: iCategory[] = data;
+      return { categories, error };
     },
   }),
 };

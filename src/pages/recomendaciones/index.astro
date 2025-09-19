@@ -3,12 +3,13 @@ import RecommendationCard from "../../components/recomendaciones/RecommendationC
 import { actions } from "astro:actions";
 import BaseLayout from "../../layouts/baseLayout.astro";
 import type { iRecomendacion } from "../../lib/interfaces/recomendacion";
+import type { iCategory } from "../../lib/interfaces/category";
 
-let categorias: any[] = [];
+let categorias: iCategory[] = [];
 const { data: a_categorias, error: errorGettingCategorias } =
   await Astro.callAction(actions.categorias.getCategorias, {});
 if (!errorGettingCategorias) {
-  categorias = a_categorias.data;
+  categorias = a_categorias.categories;
 }
 let recomendaciones: iRecomendacion[] = [];
 let { data: a_recomendaciones, error: errorGettingRecomendaciones } =
