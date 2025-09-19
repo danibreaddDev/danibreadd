@@ -12,7 +12,9 @@ const filteredProjects = projects.slice(0, 3);
 
 <BaseLayout>
   <div class="flex flex-col gap-20 font-secondary">
-    <Presentation developer="Danibreadd" description={description} />
+    <section id="presentation">
+      <Presentation developer="Danibreadd" description={description} />
+    </section>
     <section id="startup" class="flex flex-col gap-5">
       <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
         Start up
@@ -54,6 +56,11 @@ const filteredProjects = projects.slice(0, 3);
         label="Ver las recomendaciones"
       />
     </section>
-    <Socials />
+    <section class="flex flex-col gap-5">
+      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
+        Mis redes sociales
+      </h2>
+      <Socials />
+    </section>
   </div>
 </BaseLayout>
