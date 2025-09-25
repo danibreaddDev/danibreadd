@@ -1,4 +1,5 @@
 ---
+import { Undo2, SquareArrowOutUpRight } from "@lucide/astro";
 import projects from "../../data/projects.json";
 import BaseLayout from "../../layouts/baseLayout.astro";
 
@@ -20,15 +21,7 @@ const { project } = Astro.props;
     <a
       href="/startup"
       class="group flex flex-row gap-1 items-center flex-wrap w-fit px-4 py-1 rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-6 group-hover:-translate-x-2 transition-transform duration-100 ease-in"
-        viewBox="0 0 24 24"
-        ><path
-          fill="#000"
-          d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64"
-        ></path></svg
-      ><span>Volver atrás.</span></a
+      ><Undo2 size={14} /><span>Volver atrás.</span></a
     >
     <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <img
@@ -58,18 +51,7 @@ const { project } = Astro.props;
           href={project.url}
           target="_blank"
           class="w-fit flex flex-row gap-2 items-center px-4 py-2 font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-6"
-            viewBox="0 0 24 24"
-            ><g fill="#000"
-              ><path
-                d="M14.372 3.58c1.708-1.709 4.465-1.799 6.156-.108s1.601 4.448-.107 6.156l-3.902 3.902a.75.75 0 1 1-1.06-1.06l3.901-3.902c1.165-1.165 1.171-2.971.107-4.035c-1.063-1.064-2.87-1.058-4.035.107L11.53 8.542a.75.75 0 0 1-1.06-1.06zm1.158 4.89a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 0 1-1.06-1.06l6-6a.75.75 0 0 1 1.06 0"
-              ></path><path
-                d="M8.555 11.531a.75.75 0 0 0-1.06-1.062L3.604 14.35c-1.703 1.698-1.862 4.296-.12 6.118c1.783 1.863 4.477 1.578 6.154-.094l3.892-3.881a.75.75 0 1 0-1.06-1.062L8.58 19.31c-1.189 1.186-2.908 1.272-4.01.12a3 3 0 0 1-.191-.217c-.939-1.172-.81-2.71.285-3.802z"
-              ></path></g
-            ></svg
-          ><span>Visitar.</span></a
+          ><SquareArrowOutUpRight size={14} /><span>Visitar.</span></a
         >
       </div>
     </section>
