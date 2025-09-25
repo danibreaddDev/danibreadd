@@ -1,6 +1,6 @@
 ---
 import type { iRecomendacion } from "../../lib/interfaces/recomendacion";
-
+import { actions } from "astro:actions";
 interface Props {
   recomendacion: iRecomendacion;
 }
@@ -39,11 +39,17 @@ const { recomendacion } = Astro.props;
           ></svg
         ></a
       >
-      <form method="post" action="/api/recomendaciones" class="self-end">
+      <form
+        method="post"
+        action={actions.recomendaciones.actualizarVotos}
+        class="self-end"
+      >
         <input type="hidden" name="id" value={recomendacion.id} />
         <button
           type="submit"
-          class="flex flex-row items-center gap-2 hover:cursor-pointer outline outline-neutral-300 rounded-full px-2 py-1 hover:outline-black"
+          class="flex flex-row items-center gap-2
+        hover:cursor-pointer outline outline-neutral-300 rounded-full px-2 py-1
+        hover:outline-black"
         >
           <span class="font-extrabold">{recomendacion.votos}</span>
           <svg
@@ -53,7 +59,9 @@ const { recomendacion } = Astro.props;
           >
             <path
               fill="#000"
-              d="M4 14h4v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7h4a1.001 1.001 0 0 0 .781-1.625l-8-10c-.381-.475-1.181-.475-1.562 0l-8 10A1.001 1.001 0 0 0 4 14"
+              d="M4 14h4v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7h4a1.001
+        1.001 0 0 0 .781-1.625l-8-10c-.381-.475-1.181-.475-1.562 0l-8 10A1.001
+        1.001 0 0 0 4 14"
             ></path>
           </svg>
         </button>

@@ -22,8 +22,6 @@ if (a_recomendaciones) {
 
 if (Astro.request.method === "POST") {
   const form = await Astro.request.formData();
-  console.log(form);
-
   const { data, error } = await Astro.callAction(
     actions.recomendaciones.filtrarRecomendaciones,
     form

@@ -26,13 +26,39 @@ export const recomendaciones = {
       return { recomendaciones, error };
     },
   }),
-  actualizarVotos: defineAction,
+  actualizarVotos: defineAction({
+    accept: "form",
+    input: z.object({ id: z.string() }),
+    handler: async (input) => {
+      const { data: votosActuales, error: errorVotos } = await supabase
+        .from("recomendaciones")
+        .select("votos")
+        .eq("id", input.id)
+        .single();
+      if (errorVotos) {
+        throw new ActionError({
+          code: "BAD_REQUEST",
+          message: "Error obteniendo votos",
+        });
+      }
+      const nuevosVotos = Number(votosActuales.votos + 1);
+      const { error: errorActualizarVotos } = await supabase
+        .from("recomendaciones")
+        .update({ votos: nuevosVotos })
+        .eq("id", input.id);
+      if (errorActualizarVotos) {
+        throw new ActionError({
+          code: "BAD_REQUEST",
+          message: "Error obteniendo votos",
+        });
+      }
+      return { nuevosVotos };
+    },
+  }),
   filtrarRecomendaciones: defineAction({
     accept: "form",
     input: z.object({ category: z.string() }),
     handler: async (input) => {
-      console.log("eyow");
-
       let query = supabase
         .from("recomendaciones")
         .select("id,nombre,comentario,votos,url,categoria:categorias(nombre)");
