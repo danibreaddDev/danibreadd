@@ -40,9 +40,7 @@ const { project } = Astro.props;
         <div class="flex flex-row flex-wrap gap-2 items-center">
           {
             project.technologies.map((tech) => (
-              <span class="px-4 py-2 font-bold rounded-xl outline outline-neutral-300 bg-neutral-100 text-black text-sm ">
-                {tech}
-              </span>
+              <span class="px-4 py-2 font-bold  text-sm ">{tech}</span>
             ))
           }
         </div>
@@ -61,34 +59,26 @@ const { project } = Astro.props;
       </p>
 
       <div class="grid grid-cols-1 gap-5">
-        <article
-          class="bg-white border border-neutral-300 shadow-md rounded-2xl p-6"
-        >
+        <article class="bg-white border border-neutral-300 p-6">
           <p>{project.description.rule_1}</p>
         </article>
 
-        <article
-          class="bg-white border border-neutral-300 shadow-md rounded-2xl p-6"
-        >
+        <article class="bg-white border border-neutral-300 l p-6">
           <p>{project.description.rule_2}</p>
         </article>
 
-        <article
-          class="bg-white border border-neutral-300 shadow-md rounded-2xl p-6"
-        >
+        <article class="bg-white border border-neutral-300 l p-6">
           <p>{project.description.rule_3}</p>
         </article>
         {
           project.description.rule_4 && (
-            <article class="bg-white border border-neutral-300 shadow-md rounded-2xl p-6">
+            <article class="bg-white border border-neutral-300  p-6">
               <p>{project.description.rule_4}</p>
             </article>
           )
         }
 
-        <article
-          class="bg-white border border-neutral-300 shadow-md rounded-2xl p-6"
-        >
+        <article class="bg-white border border-neutral-300 p-6">
           <p>{project.description.rule_5}</p>
         </article>
 

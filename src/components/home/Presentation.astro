@@ -6,13 +6,13 @@ interface Props {
 const { developer, description } = Astro.props;
 ---
 
-<section class="flex flex-col gap-5">
+<div class="flex flex-col gap-5">
   <h1
     class="font-primary text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black"
   >
     {developer}
   </h1>
-  <h3 class="font-secondary text-xl sm:text-2xl xl:text-3xl font-normal">
+  <h3 class="font-secondary text-xl font-light leading-7">
     {description}
   </h3>
-</section>
+</div>

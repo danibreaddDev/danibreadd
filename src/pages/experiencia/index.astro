@@ -14,11 +14,11 @@ const experiences: iExperience[] = experience;
       >
         Experiencia
       </h1>
-      <p class="font-secondary text-base lg:text-lg xl:text-3xl font-normal">
+      <p class="font-secondary text-xl font-light leading-7">
         Aquí comparto la experiencia que tengo en el sector.
       </p>
     </div>
-    <section class="grid grid-cols-1">
+    <section class="grid grid-cols-1 gap-10">
       {
         experiences.map((exp: iExperience) => (
           <ExperienceCard experience={exp} />

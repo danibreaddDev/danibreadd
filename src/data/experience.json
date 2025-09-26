@@ -1,8 +1,8 @@
 [
   {
     "slug": "4",
-    "position": "Junior Front-End developer",
-    "descriptionJob": "Proyecto en Banco Santander.",
+    "position": "Junior Front-End",
+    "descriptionJob": "Proyecto con cliente.",
     "company": "Sopra Steria",
     "technologies": ["Angular"],
     "startDate": "Septiembre 2025",
@@ -10,16 +10,16 @@
   },
   {
     "slug": "3",
-    "position": "Trainee Front-End developer.",
+    "position": "Trainee Front-End",
     "descriptionJob": "Participé en el desarrollo de la aplicación web Racó Solidari, un proyecto del IES Serpis que promueve el préstamo de objetos y la participación en actividades sociales y comunitarias. Este proyecto es unicamente para estudiantes en prácticas y como parte de la segunda promoción, el equipo consiguió mejorar notablemente el apartado técnico y destacar notablemente el diseño de la aplicación, felicitados tanto por el centro como nuestros formadores en la empresa.",
     "company": "Sopra Steria",
     "technologies": ["Angular 16", "Jest", "Sass", "Bootstrap"],
     "startDate": "Enero 2025",
-    "duration": "5 meses"
+    "duration": "6 meses"
   },
   {
     "slug": "2",
-    "position": "Trainee developer.",
+    "position": "Trainee",
     "descriptionJob": "Resolución de incidencias y administración de la base de datos del portal web. Desarrollo de herramienta de gestión de stock para mejorar el seguimiento de inventarios, permitiendo la edición y la inserción de nuevos dispositivos.",
     "company": "Datium",
     "technologies": [
@@ -35,7 +35,7 @@
   },
   {
     "slug": "1",
-    "position": "Trainee developer.",
+    "position": "Trainee",
     "descriptionJob": "Desarrollé una herramienta con Speedtest CLI para monitorear la velocidad de Internet. Implementé un script que detecta caídas de velocidad y envía alertas por correo electrónico. También creé una web para visualizar y filtrar los registros, mejorando la supervisión.",
     "company": "Iberica de Redes",
     "technologies": ["PHP", "Bash", "HTML5", "CSS3", "SpeedTest CLI", "MySQL"],
