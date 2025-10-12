@@ -13,7 +13,7 @@
       "rule_6": "Es la herramienta definitiva para organizar, competir y dar seguimiento a tus Nuzlocke."
     },
     "technologies": ["Angular 20", "TailwindCSS", "Supabase"],
-    "url": "",
+    "url": "https://locke-league.vercel.app/",
     "img": "lockeleague"
   },
   {
