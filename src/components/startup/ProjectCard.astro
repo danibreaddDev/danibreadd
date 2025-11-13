@@ -14,13 +14,15 @@ const { project } = Astro.props;
 const projectsPath = "/images/projects/";
 ---
 
-<article class="outline-4 outline-neutral-300 overflow-hidden">
+<article class="size-full relative group">
   <img
     src={projectsPath + project.img + ".png"}
     alt={project.title}
-    class="object-contain"
+    class="rounded-3xl group-hover:opacity-10 group-hover:shadow-black group-hover:transition-all group-hover:duration-300"
   />
-  <div class="p-5 flex flex-col gap-5">
+  <div
+    class="hidden group-hover:flex absolute z-20 inset-0 p-5 flex-col gap-5 size-fit"
+  >
     <h2
       class="font-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
     >

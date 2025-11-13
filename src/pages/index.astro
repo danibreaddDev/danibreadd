@@ -1,22 +1,21 @@
 ---
-import projects from "../data/projects.json";
 import BaseLayout from "../layouts/baseLayout.astro";
 import Presentation from "../components/home/Presentation.astro";
 import Socials from "../components/home/Socials.astro";
-import ProjectCard from "../components/startup/ProjectCard.astro";
-import Button from "../components/ui/Button.astro";
-const description =
-  "En mi tiempo libre disfruto entrenando en el gimnasio, compartiendo momentos con amigos y desarrollando proyectos. Creo que el equilibrio entre cuidarse, aprender y divertirse es fundamental. Aquí comparto detalles de mi día a día.";
-const filteredProjects = projects.slice(0, 3);
 ---
 
 <BaseLayout>
-  <div class="flex flex-col gap-30 font-secondary">
+  <div
+    class="flex flex-col gap-30 font-secondary items-center justify-center h-screen"
+  >
     <section id="presentation" class="flex flex-col gap-10">
-      <Presentation developer="Danibreadd" description={description} />
+      <Presentation
+        developer="Hey, soy Dani"
+        description={"En mi tiempo libre disfruto entrenando en el gimnasio, compartiendo momentos con amigos y desarrollando proyectos. Creo que el equilibrio entre cuidarse, aprender y divertirse es fundamental."}
+      />
       <Socials />
     </section>
-    <section id="startup" class="flex flex-col gap-5">
+    <!-- <section id="startup" class="flex flex-col gap-5">
       <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
         Start up
       </h2><p class="font-light text-lg">
@@ -31,31 +30,6 @@ const filteredProjects = projects.slice(0, 3);
         styles="self-center px-8 py-4 bg-black  font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
         label="Ver los proyectos"
       />
-    </section>
-    <!-- <section id="momentos" class="flex flex-col gap-5">
-      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
-        Momentos
-      </h2><p class="font-light text-lg">
-        Un espacio donde comparto instantes de mi vida.
-      </p>
-      <Button
-        url="/momentos"
-        styles="self-center px-8 py-4 bg-black  font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
-        label="Ver los momentos"
-      />
     </section>-->
-    <section id="recomendaciones" class="flex flex-col gap-5">
-      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
-        Recomendaciones
-      </h2><p class="font-light text-lg">
-        Un rincón de inspiración y entretenimiento: series, películas,libros y
-        posts, para que siempre tengas algo interesante que disfrutar.
-      </p>
-      <Button
-        url="/recomendaciones"
-        styles="self-center px-8 py-4 bg-black font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
-        label="Ver las recomendaciones"
-      />
-    </section>
   </div>
 </BaseLayout>

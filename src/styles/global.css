@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+
 @theme {
   --font-primary: "Cal Sans", sans-serif;
   --font-secondary: "Inter", sans-serif;
