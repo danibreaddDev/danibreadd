@@ -1,35 +1,19 @@
-[
-  {
-    "slug": "lockeleague",
-    "title": "LockeLeague",
-    "short_description": "Plataforma web dedicada para jugar lockes de Pokémon de manera multijugador.",
-    "description": {
-      "overview": "Aplicación web donde los jugadores se conectan con Discord para llevar sus desafíos Pokémon Locke al siguiente nivel.",
-      "rule_1": "Permite crear grupos y definir Lockes con un número de vidas inicial.",
-      "rule_2": "Los usuarios pueden gestionar sus equipos Pokémon en detalle, incluyendo IVs y EVs.",
-      "rule_3": "Se pueden organizar torneos asociados al Locke para ganar puntos y ascender en una clasificación.",
-      "rule_4": "Ofrece seguimiento en vivo con vidas restantes y checkpoints visibles.",
-      "rule_5": "Al finalizar el Locke, el jugador cuyas vidas se acerquen más al número inicial obtiene una victoria general.",
-      "rule_6": "Es la herramienta definitiva para organizar, competir y dar seguimiento a tus Nuzlocke."
-    },
-    "technologies": ["Angular 20", "TailwindCSS", "Supabase"],
-    "url": "https://locke-league.vercel.app/",
-    "img": "lockeleague"
+{
+  "currentProject": {
+    "slug": "JamOut",
+    "title": "JamOut",
+    "url": ""
   },
-  {
-    "slug": "resonify",
-    "title": "Resonify",
-    "short_description": "Plataforma web dedicada para visualizar tu wrap de spotify.",
-    "description": {
-      "overview": "Aplicación web que conecta con la API de Spotify para mostrar de manera visual y atractiva tus estadísticas musicales anuales.",
-      "rule_1": "Descubre tus artistas más escuchados y cómo han cambiado tus hábitos a lo largo del tiempo.",
-      "rule_2": "Explora las canciones que más has repetido durante el año.",
-      "rule_3": "Analiza tus géneros musicales favoritos y su evolución.",
-      "rule_5": "Comparte tus resultados personalizados en redes sociales con diseños llamativos.",
-      "rule_6": "La mejor forma de revivir tu año musical y compartirlo con tus amigos."
+  "projects": [
+    {
+      "slug": "lockeleague",
+      "title": "LockeLeague",
+      "url": "https://locke-league.vercel.app/"
     },
-    "technologies": ["Angular 19", "TailwindCSS", "Spotify API"],
-    "url": "https://resonify.vercel.app/",
-    "img": "resonify"
-  }
-]
+    {
+      "slug": "resonify",
+      "title": "Resonify",
+      "url": "https://resonify.vercel.app/"
+    }
+  ]
+}

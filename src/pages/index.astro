@@ -1,35 +1,47 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 import Presentation from "../components/home/Presentation.astro";
+import Location from "../components/home/Location.astro";
 import Socials from "../components/home/Socials.astro";
+import StartupList from "../components/home/StartupList.astro";
+import JobPosition from "../components/home/JobPosition.astro";
+import TechStack from "../components/home/TechStack.astro";
+import projects from "../data/projects.json";
+import techs from "../data/techs.json";
 ---
 
 <BaseLayout>
-  <div
-    class="flex flex-col gap-30 font-secondary items-center justify-center h-screen"
-  >
-    <section id="presentation" class="flex flex-col gap-10">
-      <Presentation
-        developer="Hey, soy Dani"
-        description={"En mi tiempo libre disfruto entrenando en el gimnasio, compartiendo momentos con amigos y desarrollando proyectos. Creo que el equilibrio entre cuidarse, aprender y divertirse es fundamental."}
-      />
-      <Socials />
+  <div class="relative flex flex-col gap-10 mx-auto max-w-7xl font-primary">
+    <section id="presentation">
+      <Presentation developer="Danibreadd" />
+      <Location location="Valencia, Spain" />
     </section>
-    <!-- <section id="startup" class="flex flex-col gap-5">
-      <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold font-primary">
-        Start up
-      </h2><p class="font-light text-lg">
-        Construyendo ideas • Aprendiendo del proceso • Compartiendo con el
-        mundo.
-      </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filteredProjects.map((project) => <ProjectCard project={project} />)}
+    <section><JobPosition Position="FrontEnd Developer" /></section>
+    <section class="grid grid-cols-1 gap-5">
+      <div class="flex flex-col gap-5">
+        <div class="flex flex-col gap-3">
+          <TechStack
+            title="Techs in my current day-to-day work"
+            techStack={techs.mainTechs}
+          />
+          <TechStack title="More Techs I use" techStack={techs.otherTechs} />
+        </div>
       </div>
-      <Button
-        url="/startup"
-        styles="self-center px-8 py-4 bg-black  font-semibold rounded-2xl hover:outline hover:outline-neutral-300 hover:bg-white bg-neutral-200 text-black"
-        label="Ver los proyectos"
-      />
-    </section>-->
+    </section>
+    <StartupList
+      currentProject={projects.currentProject}
+      projects={projects.projects}
+    />
+    <Socials />
   </div>
+
+  <style is:global>
+    a {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline dashed;
+        text-underline-offset: 4px;
+      }
+    }
+  </style>
 </BaseLayout>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  techStack: { slug: string; name: string }[];
+}
+const { techStack, title } = Astro.props;
+---
+
+<section class="flex flex-col gap-2">
+  <h3 class="text-xl font-bold">{title}</h3>
+
+  <div class="flex flex-row flex-wrap items-center gap-5">
+    {techStack.map((tech) => <span>{tech.name}</span>)}
+  </div>
+</section>

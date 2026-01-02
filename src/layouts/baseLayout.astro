@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
-import Header from "../components/shared/Header.astro";
+
 import Footer from "../components/shared/Footer.astro";
 ---
 
@@ -22,8 +22,7 @@ import Footer from "../components/shared/Footer.astro";
     <title>danibreadd</title>
   </head>
   <body>
-    <Header />
-    <main class="container mx-auto max-w-6xl p-2 min-h-screen">
+    <main class="min-h-screen p-6 sm:p-8 md:p-12">
       <slot />
     </main>
     <Footer />
