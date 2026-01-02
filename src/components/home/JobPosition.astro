@@ -1,0 +1,11 @@
+---
+import { MonitorSmartphone } from "@lucide/astro";
+interface Props {
+  Position: string;
+}
+const { Position } = Astro.props;
+---
+
+<span class="flex flex-row items-center gap-2 text-lg"
+  ><MonitorSmartphone size={16} /> {Position}</span
+>

@@ -1,0 +1,46 @@
+{
+  "mainTechs": [
+    {
+      "slug": "Angular",
+      "name": "Angular"
+    },
+    {
+      "slug": "Sass",
+      "name": "Sass"
+    },
+    {
+      "slug": "Karma",
+      "name": "Karma"
+    },
+    {
+      "slug": "Jenkins",
+      "name": "Jenkins"
+    },
+    {
+      "slug": "Trello",
+      "name": "Trello"
+    }
+  ],
+  "otherTechs": [
+    {
+      "slug": "Vue",
+      "name": "Vue"
+    },
+    {
+      "slug": "React",
+      "name": "React"
+    },
+    {
+      "slug": "TailwindCSS",
+      "name": "TailwindCSS"
+    },
+    {
+      "slug": "Bootstrap",
+      "name": "Bootstrap"
+    },
+    {
+      "slug": "Figma",
+      "name": "Figma"
+    }
+  ]
+}
