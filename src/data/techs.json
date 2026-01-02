@@ -19,6 +19,14 @@
     {
       "slug": "Trello",
       "name": "Trello"
+    },
+    {
+      "slug": "Git",
+      "name": "Git"
+    },
+    {
+      "slug": "GitHub",
+      "name": "GitHub"
     }
   ],
   "otherTechs": [
@@ -41,6 +49,14 @@
     {
       "slug": "Figma",
       "name": "Figma"
+    },
+    {
+      "slug": "PHP",
+      "name": "PHP"
+    },
+    {
+      "slug": "Laravel",
+      "name": "Laravel"
     }
   ]
 }
