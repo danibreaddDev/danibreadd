@@ -15,5 +15,17 @@
       "title": "Resonify",
       "url": "https://resonify.vercel.app/"
     }
+  ],
+  "landings": [
+    {
+      "slug": "Mojeteo Podcast",
+      "title": "Mojeteo Podcast",
+      "url": "https://mojeteo.netlify.app/"
+    },
+    {
+      "slug": "Dayner Pedralba",
+      "title": "Dayner Pedralba",
+      "url": "https://daynerpedralba.com/"
+    }
   ]
 }

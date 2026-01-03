@@ -19,7 +19,7 @@ import techs from "../data/techs.json";
     <section><JobPosition Position="FrontEnd Developer" /></section>
     <section class="grid grid-cols-1 gap-5">
       <div class="flex flex-col gap-5">
-        <div class="flex flex-col gap-3">
+        <div class="grid grid-cols-1 gap-5">
           <TechStack
             title="Techs in my current day-to-day work"
             techStack={techs.mainTechs}
@@ -31,6 +31,7 @@ import techs from "../data/techs.json";
     <StartupList
       currentProject={projects.currentProject}
       projects={projects.projects}
+      landings={projects.landings}
     />
     <Socials />
   </div>
