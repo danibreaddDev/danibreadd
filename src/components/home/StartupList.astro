@@ -2,30 +2,60 @@
 import ProjectList from "./ProjectList.astro";
 
 interface Props {
+  title: string;
   projects: { title: string; url: string }[];
-  currentProject?: { title: string; url: string };
+  currentProjects: {
+    title: string;
+    url: string;
+    team?: { name: string; url: string }[];
+    position: string;
+    stack: string[];
+  }[];
   landings: { title: string; url: string }[];
 }
-const { projects, currentProject, landings } = Astro.props;
+const { title, projects, currentProjects, landings } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+<div class="grid grid-cols-1">
   <div class="flex flex-col gap-2">
-    <h3 class="text-xl font-bold">Current working on</h3>
-    <div class="flex flex-row flex-wrap items-center gap-2">
-      <a href={currentProject?.url} target="_blank">{currentProject?.title}</a>
-      <span class="flex flex-row items-center gap-2"
-        >with <a href="https://llucx.is-a.dev/" target="_blank">@Lluc</a></span
-      >
+    <h3 class="text-3xl font-bold">{title}</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      {
+        currentProjects.map((project) => (
+          <div class="flex flex-col gap-2 w-fit">
+            <div class="flex flex-row gap-2 items-center">
+              <a href={project.url} target="_blank" class="font-medium text-lg">
+                {project.title}
+              </a>
+              <>
+                {project.team && (
+                  <span class="flex flex-row items-center gap-2">
+                    with
+                    <a href="https://llucx.is-a.dev/" target="_blank">
+                      @Lluc
+                    </a>
+                  </span>
+                )}
+              </>
+            </div>
+            <span>{project.position}</span>
+            <div class="flex flex-row flex-wrap items-center gap-2">
+              {project.stack.map((tech) => (
+                <span>{tech}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
+</div>
 
-  <div class="flex flex-col gap-2">
-    <h3 class="text-xl font-bold">Some past startups</h3>
-    <ProjectList projects={projects} />
-  </div>
-  <div class="flex flex-col gap-2">
-    <h3 class="text-xl font-bold">Landing Pages</h3>
-    <ProjectList projects={landings} />
-  </div>
+<div class="flex flex-col gap-2">
+  <h3 class="text-3xl font-bold">Some past startups</h3>
+  <ProjectList projects={projects} />
+</div>
+<div class="flex flex-col gap-2">
+  <h3 class="text-3xl font-bold">Landing Pages</h3>
+  <ProjectList projects={landings} />
 </div>

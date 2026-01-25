@@ -1,9 +1,26 @@
 {
-  "currentProject": {
-    "slug": "JamOut",
-    "title": "JamOut",
-    "url": ""
-  },
+  "currentProjects": [
+    {
+      "slug": "JamOut",
+      "title": "JamOut",
+      "url": "",
+      "team": [
+        {
+          "name": "Lluc",
+          "url": "https://llucx.is-a.dev/"
+        }
+      ],
+      "position": "Frontend Developer",
+      "stack": ["Vue", "Vite"]
+    },
+    {
+      "slug": "Viajalo",
+      "title": "Viajalo",
+      "url": "",
+      "position": "FullStack Developer",
+      "stack": ["NextJS", "NestJs"]
+    }
+  ],
   "projects": [
     {
       "slug": "lockeleague",

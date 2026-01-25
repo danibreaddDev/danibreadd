@@ -24,12 +24,13 @@ import techs from "../data/techs.json";
             title="Techs in my current day-to-day work"
             techStack={techs.mainTechs}
           />
-          <TechStack title="More Techs I use" techStack={techs.otherTechs} />
+          <TechStack title="More techs I use" techStack={techs.otherTechs} />
         </div>
       </div>
     </section>
     <StartupList
-      currentProject={projects.currentProject}
+      title="Current working on"
+      currentProjects={projects.currentProjects}
       projects={projects.projects}
       landings={projects.landings}
     />
