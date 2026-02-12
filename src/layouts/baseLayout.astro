@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
-
+import Header from "../components/shared/Header.astro";
 import Footer from "../components/shared/Footer.astro";
 ---
 
@@ -22,6 +22,10 @@ import Footer from "../components/shared/Footer.astro";
     <title>danibreadd</title>
   </head>
   <body>
+    <Header
+      devName="Daniel Pamblanco Mestre"
+      links={[{ name: "videos", href: "/videos" }]}
+    />
     <main class="min-h-screen p-6 sm:p-8 md:p-12 mb-12 sm:mb-0">
       <slot />
     </main>

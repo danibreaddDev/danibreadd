@@ -1,0 +1,18 @@
+---
+interface Link {
+  name: string;
+  href: string;
+}
+interface Props {
+  devName: string;
+  links: Link[];
+}
+const { devName, links } = Astro.props;
+---
+
+<header class="flex justify-between container mx-auto max-w-5xl py-5">
+  <a href="/">{devName}</a>
+  <div class="flex flex-row gap-2 items-center">
+    {links.map((link) => <a href={link.href}>{link.name}</a>)}
+  </div>
+</header>

@@ -11,12 +11,13 @@ import techs from "../data/techs.json";
 ---
 
 <BaseLayout>
-  <div class="relative flex flex-col gap-10 mx-auto max-w-7xl font-primary">
-    <section id="presentation">
-      <Presentation developer="Danibreadd" />
+  <div class="relative flex flex-col gap-10 mx-auto max-w-5xl font-primary">
+    <Presentation developer="Hey, I am Daniel" />
+    <div class="flex flex-row gap-4 items-center">
       <Location location="Valencia, Spain" />
-    </section>
-    <section><JobPosition Position="FrontEnd Developer" /></section>
+      <JobPosition Position="Frontend Developer" />
+    </div>
+    <Socials />
     <section class="grid grid-cols-1 gap-5">
       <div class="flex flex-col gap-5">
         <div class="grid grid-cols-1 gap-5">
@@ -34,7 +35,6 @@ import techs from "../data/techs.json";
       projects={projects.projects}
       landings={projects.landings}
     />
-    <Socials />
   </div>
 
   <style is:global>

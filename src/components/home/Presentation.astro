@@ -1,16 +1,15 @@
 ---
 interface Props {
   developer: string;
-  description?: string;
 }
-const { developer, description } = Astro.props;
+const { developer } = Astro.props;
 ---
 
 <div class="flex flex-col gap-5">
-  <h1 class="text-5xl font-black sm:text-6xl lg:text-7xl xl:text-8xl">
-    {developer}
-  </h1>
-  <h3 class="text-xl font-light leading-7">
-    {description}
-  </h3>
+  <div class="flex flex-row gap-2 items-center">
+    <h1 class="text-2xl text-gray-800 leading-8">
+      {developer}
+    </h1>
+    <img src="/images/profile.jpeg" alt="logo" class="size-12 rounded-full" />
+  </div>
 </div>
