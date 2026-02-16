@@ -3,6 +3,13 @@ import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
 import Header from "../components/shared/Header.astro";
 import Footer from "../components/shared/Footer.astro";
+import ContactLink from "../components/shared/ContactLink.astro";
+import Link from "../components/shared/Link.astro";
+import { Video } from "@lucide/astro";
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
 ---
 
 <html lang="es" transition:animate="fade">
@@ -19,15 +26,20 @@ import Footer from "../components/shared/Footer.astro";
     />
     <meta property="og:url" content="https://www.danibreadd.com/" />
     <CommonHead />
-    <title>danibreadd</title>
+    <title>{title}</title>
   </head>
   <body>
     <Header
       devName="Daniel Pamblanco Mestre"
-      links={[{ name: "videos", href: "/videos" }]}
+      links={[{ name: "videos", href: "/videos", icon: Video }]}
     />
     <main class="min-h-screen p-6 sm:p-8 md:p-12 mb-12 sm:mb-0">
-      <slot />
+      <div class="relative flex flex-col gap-10 mx-auto max-w-5xl font-primary">
+        <slot />
+        <hr class="text-gray-200" />
+        <!--<Link label="Mi Setup y Recomendaciones" link="recomendaciones" /> -->
+        <ContactLink email="danielpamblancomestre@gmail.com" />
+      </div>
     </main>
     <Footer />
   </body>

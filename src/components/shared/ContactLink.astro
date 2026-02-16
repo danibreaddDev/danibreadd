@@ -1,0 +1,15 @@
+---
+interface Props {
+  email: string;
+}
+const { email } = Astro.props;
+---
+
+<p class="group">
+  <span class="text-lg leading-8">¿Quieres contactar conmigo?</span>
+  <a
+    href={"mailto:" + email}
+    title={email}
+    class="ms-1 group-hover:text-green-600">Haz click aquí.</a
+  >
+</p>

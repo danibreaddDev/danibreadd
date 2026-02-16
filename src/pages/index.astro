@@ -10,40 +10,31 @@ import projects from "../data/projects.json";
 import techs from "../data/techs.json";
 ---
 
-<BaseLayout>
-  <div class="relative flex flex-col gap-10 mx-auto max-w-5xl font-primary">
-    <Presentation developer="Hey, I am Daniel" />
-    <div class="flex flex-row flex-wrap gap-4 items-center">
-      <Location location="Valencia, Spain" />
-      <JobPosition Position="Frontend Developer" />
-    </div>
-    <Socials />
-    <section class="grid grid-cols-1 gap-5">
-      <div class="flex flex-col gap-5">
-        <div class="grid grid-cols-1 gap-5">
-          <TechStack
-            title="Techs in my current day-to-day work"
-            techStack={techs.mainTechs}
-          />
-          <TechStack title="More techs I use" techStack={techs.otherTechs} />
-        </div>
-      </div>
-    </section>
-    <StartupList
-      title="Current working on"
-      currentProjects={projects.currentProjects}
-      projects={projects.projects}
-      landings={projects.landings}
-    />
+<BaseLayout title="Daniel Pamblanco Mestre | Desarrollador Web">
+  <Presentation developer="Hey, I am Daniel" />
+  <div class="flex flex-row flex-wrap gap-4 items-center">
+    <Location location="Valencia, Spain" />
+    <JobPosition Position="Frontend Developer" />
   </div>
-
-  <style is:global>
-    a {
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline dashed;
-        text-underline-offset: 4px;
-      }
-    }
-  </style>
+  <Socials />
+  <section class="grid grid-cols-1 gap-5">
+    <div class="flex flex-col gap-5">
+      <div class="grid grid-cols-1 gap-5">
+        <TechStack
+          title="Tecnologías que uso en mi dia a dia"
+          techStack={techs.mainTechs}
+        />
+        <TechStack
+          title="Otras tecnologías con las que puedo trabajar"
+          techStack={techs.otherTechs}
+        />
+      </div>
+    </div>
+  </section>
+  <StartupList
+    title="Trabajando en"
+    currentProjects={projects.currentProjects}
+    projects={projects.projects}
+    landings={projects.landings}
+  />
 </BaseLayout>

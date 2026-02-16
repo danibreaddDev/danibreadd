@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string;
+  link: string;
+}
+const { link, label } = Astro.props;
+---
+
+<p class="group">
+  <span class="text-lg leading-8">{label}</span>
+  <a href={"/" + link} class="ms-1 group-hover:text-green-600"
+    >Haz click aquí.</a
+  >
+</p>

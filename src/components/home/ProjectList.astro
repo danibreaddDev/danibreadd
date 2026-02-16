@@ -14,3 +14,12 @@ const { projects } = Astro.props;
     ))
   }
 </div>
+<style scoped>
+  a {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline dashed;
+      text-underline-offset: 4px;
+    }
+  }
+</style>

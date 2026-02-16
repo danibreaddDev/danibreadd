@@ -1,20 +1,42 @@
 ---
+import { Icon, type AstroComponent } from "@lucide/astro";
 interface Link {
   name: string;
   href: string;
+  icon: AstroComponent;
 }
 interface Props {
   devName: string;
   links: Link[];
 }
 const { devName, links } = Astro.props;
+console.log(links);
 ---
 
 <header
-  class="flex justify-between container mx-auto max-w-5xl py-5 px-5 sm:px-0"
+  class="flex justify-between container mx-auto max-w-5xl py-5 px-5 sm:px-0 text-gray-800"
 >
   <a href="/">{devName}</a>
   <div class="flex flex-row gap-2 items-center">
-    {links.map((link) => <a href={link.href}>{link.name}</a>)}
+    {
+      links.map((link) => {
+        const Icon = link.icon;
+        return (
+          <a href={link.href} class="flex flex-row gap-2 items-center">
+            <span>{link.name}</span>
+            <Icon size={18} stroke-width={1.5} />
+          </a>
+        );
+      })
+    }
   </div>
 </header>
+<style scoped>
+  a {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline dashed;
+      text-underline-offset: 4px;
+    }
+  }
+</style>
