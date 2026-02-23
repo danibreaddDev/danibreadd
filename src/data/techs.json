@@ -13,6 +13,14 @@
       "name": "Karma"
     },
     {
+      "slug": "Java",
+      "name": "Java"
+    },
+    {
+      "slug": "Selenium",
+      "name": "Selenium"
+    },
+    {
       "slug": "Jenkins",
       "name": "Jenkins"
     },
@@ -30,6 +38,10 @@
     }
   ],
   "otherTechs": [
+    {
+      "slug": "Astro",
+      "name": "Astro"
+    },
     {
       "slug": "NextJS",
       "name": "NextJS"
