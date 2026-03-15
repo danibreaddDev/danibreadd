@@ -1,22 +1,29 @@
 ---
 import BaseLayout from "../../layouts/baseLayout.astro";
+import videos from "../../data/videos.json";
 ---
 
 <BaseLayout title="Documentando mi rutina | Daniel Pamblanco Mestre">
   <h1 class="text-2xl leading-8 text-gray-800">Documentando mi rutina</h1>
   <div class="grid grid-cols-1 gap-5">
-    <a href="https://youtu.be/pRzv9HF9P08" target="_blank" class="group">
-      <div class="flex items-center gap-4">
-        <img
-          src="/images/episodes/ep-0.jpg"
-          alt="img"
-          class="w-40 object-cover aspect-video flex-shrink-0"
-        />
-        <div>
-          <p class="text-sm text-gray-500">Ep 0</p>
-          <p class="group-hover:text-gray-950 text-gray-700">Construyendo</p>
-        </div>
-      </div>
-    </a>
+    {
+      videos.map((video) => (
+        <a href={video.href} target="_blank" class="group">
+          <div class="flex items-center gap-4">
+            <img
+              src={`/images/episodes/ep-${video.episode}.jpg`}
+              alt="img"
+              class="w-40 object-cover aspect-video flex-shrink-0"
+            />
+            <div>
+              <p class="text-sm text-gray-500">Ep {video.episode}</p>
+              <p class="group-hover:text-gray-950 text-gray-700">
+                {video.title}
+              </p>
+            </div>
+          </div>
+        </a>
+      ))
+    }
   </div>
 </BaseLayout>
