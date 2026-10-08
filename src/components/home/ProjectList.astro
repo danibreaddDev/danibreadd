@@ -1,6 +1,6 @@
 ---
 interface Props {
-  projects: { title: string; url: string }[];
+  projects: { title: string; url: string; description?: string }[];
 }
 const { projects } = Astro.props;
 ---
@@ -8,18 +8,28 @@ const { projects } = Astro.props;
 <div class="flex flex-row flex-wrap items-center gap-5">
   {
     projects.map((project) => (
-      <a href={project.url} target="_blank" class="text-lg text-gray-500">
+      <a
+        href={project.url}
+        target="_blank"
+        class="text-justify text-[12px] 2xl:text-lg project-link group"
+      >
         {project.title}
+        {project.description && (
+          <div class="absolute bottom-[60px] right-[20px] max-w-2xs md:bottom-[20px] md:right-[60px] z-50 opacity-0 scale-0 origin-bottom-right transition-all duration-300 delay-300 group-hover:opacity-100 group-hover:scale-100 pointer-events-none text-black text-[10px] 2xl:text-xs text-justify font-bold px-3 py-2 md:px-4 md:py-2 outline-[#D7D140] outline-4 outline-dashed bg-white drop-shadow-md">
+            {project.description}
+          </div>
+        )}
       </a>
     ))
   }
 </div>
 <style scoped>
-  a {
+  .project-link {
     cursor: pointer;
-    &:hover {
-      text-decoration: underline dashed;
-      text-underline-offset: 4px;
-    }
+    text-decoration: none;
+  }
+  .project-link:hover {
+    text-decoration: underline dashed;
+    text-underline-offset: 4px;
   }
 </style>

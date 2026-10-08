@@ -1,7 +1,10 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 import Header from "../components/shared/Header.astro";
-import { Video } from "@lucide/astro";
+import Socials from "../components/home/Socials.astro";
+import YearsExperience from "../components/home/YearsExperience.astro";
+import Presentation from "../components/home/Presentation.astro";
+import ProjectsCard from "../components/home/ProjectsCard.astro";
 ---
 
 <BaseLayout title="Daniel Pamblanco Mestre | Desarrollador Web">
@@ -11,7 +14,7 @@ import { Video } from "@lucide/astro";
       height="100%"
       viewBox="0 0 100 25"
       preserveAspectRatio="none"
-      class="fill-white"
+      class="fill-[#D7D140]"
     >
       <text
         x="0"
@@ -24,28 +27,24 @@ import { Video } from "@lucide/astro";
       >
     </svg>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 h-full">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2 h-full">
     <div
-      class="col-span-1 h-full bg-cover bg-center md:bg-bottom bg-no-repeat bg-[url('/images/portada.jpg')]"
+      class="col-span-1 h-64 md:h-full bg-cover bg-center md:bg-bottom bg-no-repeat bg-[url('/images/portada.jpg')]"
     >
     </div>
     <div
-      class="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2 h-full uppercase"
+      class="col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-5 h-full uppercase"
     >
-      <div class="flex flex-col justify-between text-white p-5">
-        <div>Musica</div>
-        <div class="flex flex-col gap-2">
-          <h1 class="text-5xl font-black">Sobre mi</h1>
-          <hr />
-          <p class="text-justify">
-            Me llamo Dani, soy programador Frontend. Me mola el mundillo de la
-            música, los videjuegos y sobre todo hacer paginas web.
-          </p>
-        </div>
+      <div class="grid grid-cols-1 md:gap-2 gap-5 text-white">
+        <Presentation
+          title="Sobre mi"
+          description="Hey soy Dani, codeo de vez en cuando, escucho musiquita (a veces es de nicho) y bueno veo anime, trabajo en mi para ser mejor persona y esas vainas."
+        />
+        <ProjectsCard />
       </div>
-      <div class="text-white flex flex-col justify-between gap-5 p-5">
-        <h1 class="text-5xl font-black">Redes sociales</h1>
-        <div class="bg-white text-black">Años de experiencia</div>
+      <div class="text-white grid grid-cols-1">
+        <Socials />
+        <YearsExperience years={2} href="#sobre-mi" />
       </div>
     </div>
   </div>

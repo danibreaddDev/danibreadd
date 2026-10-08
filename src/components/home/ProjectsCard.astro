@@ -1,0 +1,73 @@
+---
+import ProjectList from "./ProjectList.astro";
+import projects from "../../data/projects.json";
+---
+
+<div
+    class="projects-container flex flex-col gap-2 relative overflow-hidden rounded-2xl p-4 -m-4"
+>
+    <div class="relative z-10 flex flex-col gap-2">
+        <h2 class="text-3xl 2xl:text-6xl font-black">Proyectos</h2>
+        <ProjectList projects={projects.projects} />
+        <ProjectList projects={projects.landings} />
+    </div>
+
+    <img
+        src="/images/toto_shiny.png"
+        class="toto-shiny-popup drop-shadow-lg"
+        alt="Toto Shiny popup"
+    />
+</div>
+
+<style is:global>
+    .toto-shiny-popup {
+        position: absolute;
+        bottom: -200px;
+        right: 0px;
+        width: 100px;
+        z-index: 0;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        pointer-events: none;
+    }
+
+    @media (min-width: 768px) {
+        .toto-shiny-popup {
+            right: 10px;
+        }
+    }
+    @media (min-width: 1440px) {
+        .toto-shiny-popup {
+            width: 145px;
+        }
+    }
+    @media (min-width: 1536px) {
+        .toto-shiny-popup {
+            width: 200px;
+        }
+    }
+
+    @keyframes wiggle {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(-5deg) translateX(5px) rotateZ(10deg) scale(0.9);
+        }
+        50% {
+            transform: rotate(0deg) translateX(-5px) rotateZ(-10deg) scale(1.1);
+        }
+        75% {
+            transform: rotate(5deg) translateX(5px);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .projects-container:has(a:hover) .toto-shiny-popup {
+        bottom: -10px;
+        opacity: 1;
+        animation: wiggle 1.5s ease-in-out forwards 0.3s;
+    }
+</style>
