@@ -6,15 +6,18 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2">
+<div class="relative flex flex-col gap-2">
   <div class="flex flex-row items-center justify-between">
-    <h1 class="text-3xl 2xl:text-6xl font-black">
+    <h1 class="text-3xl 2xl:text-5xl font-black">
       {title}
     </h1>
-    <img src="/images/icon.png" alt="icon" class="size-28 2xl:size-32" />
   </div>
-  <hr />
   <p class="text-justify text-[12px] 2xl:text-lg">
     {description}
   </p>
+  <img
+    src="/images/icon.png"
+    alt="icon"
+    class="absolute -translate-y-4 md:-translate-y-10 lg:-translate-y-28 top-0 lg:top-full lg:bottom-0 right-0 lg:right-full lg:inset-0 size-16 md:size-28 2xl:size-32"
+  />
 </div>
