@@ -1,40 +1,51 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
-import Presentation from "../components/home/Presentation.astro";
-import Location from "../components/home/Location.astro";
+import Header from "../components/shared/Header.astro";
 import Socials from "../components/home/Socials.astro";
-import StartupList from "../components/home/StartupList.astro";
-import JobPosition from "../components/home/JobPosition.astro";
-import TechStack from "../components/home/TechStack.astro";
-import projects from "../data/projects.json";
-import techs from "../data/techs.json";
+import YearsExperience from "../components/home/YearsExperience.astro";
+import Presentation from "../components/home/Presentation.astro";
+import ProjectsCard from "../components/home/ProjectsCard.astro";
 ---
 
 <BaseLayout title="Daniel Pamblanco Mestre | Desarrollador Web">
-  <Presentation developer="Hola, soy Daniel Pamblanco" />
-  <div class="flex flex-row flex-wrap gap-4 items-center">
-    <Location location="Valencia, Spain" />
-    <JobPosition Position="Frontend Developer" />
+  <div class="h-1/2 w-full">
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 100 25"
+      preserveAspectRatio="none"
+      class="fill-[#D7D140]"
+    >
+      <text
+        x="0"
+        y="21"
+        font-weight="900"
+        font-size="24"
+        textLength="100"
+        lengthAdjust="spacingAndGlyphs"
+        class="uppercase">DANIBREADD</text
+      >
+    </svg>
   </div>
-  <Socials />
-  <section class="grid grid-cols-1 gap-5">
-    <div class="flex flex-col gap-5">
-      <div class="grid grid-cols-1 gap-5">
-        <TechStack
-          title="Tecnologías que uso en mi dia a dia"
-          techStack={techs.mainTechs}
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2 h-full">
+    <div
+      class="col-span-1 h-64 md:h-full bg-cover bg-center md:bg-bottom bg-no-repeat bg-[url('/images/portada.jpg')]"
+    >
+    </div>
+    <div
+      class="col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-5 h-full uppercase"
+    >
+      <div class="grid grid-cols-1 md:gap-2 gap-5 text-white">
+        <Presentation
+          title="Sobre mi"
+          description="Soy Dani,programador Frontend y llevo unos años trabajando en el mundo de la programación web. Fuera del curro tampoco paro, me mola codear en mis ratos libres y no me callo ni bajo el agua, de ahi mi pokemon favorito, totodile :)."
         />
-        <TechStack
-          title="Otras tecnologías con las que puedo trabajar"
-          techStack={techs.otherTechs}
-        />
+        <ProjectsCard />
+      </div>
+      <div class="text-white grid grid-cols-1">
+        <Socials />
+        <YearsExperience years={2} href="#sobre-mi" />
       </div>
     </div>
-  </section>
-  <StartupList
-    title="Trabajando en"
-    currentProjects={projects.currentProjects}
-    projects={projects.projects}
-    landings={projects.landings}
-  />
+  </div>
 </BaseLayout>

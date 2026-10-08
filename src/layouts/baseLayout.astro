@@ -1,11 +1,7 @@
 ---
 import "../styles/global.css";
 import CommonHead from "../components/shared/CommonHead.astro";
-import Header from "../components/shared/Header.astro";
-import Footer from "../components/shared/Footer.astro";
-import ContactLink from "../components/shared/ContactLink.astro";
-import Link from "../components/shared/Link.astro";
-import { Video } from "@lucide/astro";
+import { Video } from "@lucide/astro/icons";
 interface Props {
   title: string;
 }
@@ -29,18 +25,36 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header
-      devName="Daniel Pamblanco Mestre"
-      links={[{ name: "videos", href: "/videos", icon: Video }]}
-    />
-    <main class="min-h-screen p-6 sm:p-8 md:p-12 mb-12 sm:mb-0">
-      <div class="relative flex flex-col gap-10 mx-auto max-w-5xl font-primary">
-        <slot />
-        <hr class="text-gray-200" />
-        <!--<Link label="Mi Setup y Recomendaciones" link="recomendaciones" /> -->
-        <ContactLink email="danielpamblancomestre@gmail.com" />
+    <main class="min-h-screen font-tertiary overflow-hidden">
+      <div class="relative flex flex-col justify-center items-center h-screen">
+        <div
+          class="relative w-full md:max-w-[80%] min-w-[95%] md:min-w-[80%] h-[85vh]"
+        >
+          <a
+            href="/videos"
+            class="absolute px-5 py-2 font-black flex flex-row items-center gap-2 text-sm bg-white rounded-full 2xl:text-3xl uppercase right-2 top-0 z-20 text-black md:-right-8 outline-4 outline-dashed rotate-12"
+            ><Video size={64} /><span>videos</span></a
+          >
+          <!-- Imágenes en las esquinas -->
+          <img
+            src="/images/cookie_for_totodile.png"
+            class="absolute -top-8 -left-2 md:-top-26 md:-left-20 w-20 md:w-64 z-20 pointer-events-none drop-shadow-lg"
+            alt="Totodile Cookie"
+          />
+          <img
+            src="/images/mudkip_swag.png"
+            class="absolute -bottom-8 -right-6 md:-bottom-20 md:-right-32 w-20 md:w-64 z-20 pointer-events-none drop-shadow-lg"
+            alt="Mudkip Swag"
+          />
+
+          <!-- Contenedor Negro -->
+          <div
+            class="w-full h-full flex flex-col border-gray-300 md:rounded-2xl bg-[#111111] p-6 overflow-y-auto overflow-x-hidden"
+          >
+            <slot />
+          </div>
+        </div>
       </div>
     </main>
-    <Footer />
   </body>
 </html>

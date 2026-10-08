@@ -1,0 +1,32 @@
+---
+interface Props {
+  years?: number;
+  href?: string;
+}
+
+const { years = 2, href = "#" } = Astro.props;
+---
+
+<div class="relative flex flex-col justify-center">
+  <!-- Número grande: anclado arriba a la derecha, desbordándose hacia abajo -->
+  <div class="relative z-0 flex flex-col lg:flex-row px-5 pt-5 w-full">
+    <p
+      class="text-sm font-black tracking-widest text-[#D7D140] uppercase leading-tight mt-2"
+    >
+      Años de<br />Experiencia
+    </p>
+    <div class="flex flex-row items-center gap-2">
+      <span
+        class="font-black leading-none text-[#D7D140] select-none -mt-3 -mr-1"
+        style="font-size: clamp(6rem, 10vw, 15rem); line-height: 1; letter-spacing: 0em;"
+      >
+        {years}
+      </span>
+      <span
+        class="text-[5rem] font-black"
+        style="font-size: clamp(4rem, 5vw, 10rem); line-height: 1; letter-spacing: 0em;"
+        >+</span
+      >
+    </div>
+  </div>
+</div>

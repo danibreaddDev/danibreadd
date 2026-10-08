@@ -11,38 +11,48 @@
         }
       ],
       "position": "Frontend Developer",
-      "stack": ["Vue", "Vite"]
+      "stack": [
+        "Vue",
+        "Vite"
+      ]
     },
     {
       "slug": "Viajalo",
       "title": "Viajalo",
       "url": "",
       "position": "FullStack Developer",
-      "stack": ["NextJS", "NestJs"]
+      "stack": [
+        "NextJS",
+        "NestJs"
+      ]
     }
   ],
   "projects": [
     {
       "slug": "lockeleague",
       "title": "LockeLeague",
-      "url": "https://locke-league.vercel.app/"
+      "url": "https://locke-league.vercel.app/",
+      "description": "Plataforma de lockes de Pokemon"
     },
     {
       "slug": "resonify",
       "title": "Resonify",
-      "url": "https://resonify.vercel.app/"
+      "url": "https://resonify.vercel.app/",
+      "description": "Aplicación web para obtener tu wrapped mensual de Spotify"
     }
   ],
   "landings": [
     {
       "slug": "Mojeteo Podcast",
       "title": "Mojeteo Podcast",
-      "url": "https://mojeteo.netlify.app/"
+      "url": "https://mojeteo.netlify.app/",
+      "description": "Web del podcast Mojeteo"
     },
     {
       "slug": "Dayner Pedralba",
       "title": "Dayner Pedralba",
-      "url": "https://daynerpedralba.com/"
+      "url": "https://daynerpedralba.com/",
+      "description": "Página web para DAYNER Pedralba S.L"
     }
   ]
 }
