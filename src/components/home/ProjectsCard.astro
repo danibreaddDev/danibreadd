@@ -12,15 +12,43 @@ import projects from "../../data/projects.json";
         <ProjectList projects={projects.landings} />
     </div>
 
-    <img
-        src="/images/toto_shiny.png"
-        class="toto-shiny-popup drop-shadow-lg"
-        alt="Toto Shiny popup"
-    />
+    <div class="toto-shiny-container">
+        <img
+            src="/images/toto_shiny.png"
+            class="toto-shiny-img w-full drop-shadow-lg"
+            alt="Toto Shiny popup"
+        />
+        <div
+            class="toto-shiny-dialog absolute z-50 pointer-events-none text-black text-[10px] 2xl:text-xs text-justify font-bold px-3 py-2 md:px-4 md:py-2 outline-[#D7D140] outline-4 outline-dashed bg-white drop-shadow-md"
+        >
+        </div>
+    </div>
 </div>
 
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const dialog = document.querySelector(".toto-shiny-dialog");
+        const links = document.querySelectorAll(".project-link");
+
+        if (!dialog) return;
+
+        links.forEach((link) => {
+            link.addEventListener("mouseenter", () => {
+                const desc = link.getAttribute("data-desc");
+                if (desc && desc !== "undefined") {
+                    dialog.textContent = desc;
+                    dialog.classList.add("show-dialog");
+                }
+            });
+            link.addEventListener("mouseleave", () => {
+                dialog.classList.remove("show-dialog");
+            });
+        });
+    });
+</script>
+
 <style is:global>
-    .toto-shiny-popup {
+    .toto-shiny-container {
         position: absolute;
         bottom: -200px;
         right: 0px;
@@ -32,17 +60,17 @@ import projects from "../../data/projects.json";
     }
 
     @media (min-width: 768px) {
-        .toto-shiny-popup {
+        .toto-shiny-container {
             right: 10px;
         }
     }
     @media (min-width: 1440px) {
-        .toto-shiny-popup {
+        .toto-shiny-container {
             width: 145px;
         }
     }
     @media (min-width: 1536px) {
-        .toto-shiny-popup {
+        .toto-shiny-container {
             width: 200px;
         }
     }
@@ -65,9 +93,28 @@ import projects from "../../data/projects.json";
         }
     }
 
-    .projects-container:has(a:hover) .toto-shiny-popup {
+    .projects-container:has(a:hover) .toto-shiny-container {
         bottom: -10px;
         opacity: 1;
-        animation: wiggle 1.5s ease-in-out forwards 0.3s;
+    }
+
+    .projects-container:has(a:hover) .toto-shiny-img {
+        animation: wiggle 1s ease-in-out forwards 0.5s;
+    }
+
+    .toto-shiny-dialog {
+        opacity: 0;
+        background-color: white;
+        width: 200px;
+        transform: scale(0);
+        bottom: 80%;
+        right: 80%;
+        transform-origin: bottom right;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toto-shiny-dialog.show-dialog {
+        opacity: 1;
+        transform: scale(1);
     }
 </style>

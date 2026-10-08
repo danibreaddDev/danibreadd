@@ -80,11 +80,18 @@ import { Instagram, Youtube, Github, Linkedin } from "@lucide/astro";
     </a>
   </div>
 
-  <img
-    src="/images/toto.png"
-    class="toto-popup drop-shadow-lg"
-    alt="Toto popup"
-  />
+  <div class="toto-container">
+    <img
+      src="/images/toto.png"
+      class="toto-img w-full drop-shadow-lg"
+      alt="Toto popup"
+    />
+    <div
+      class="toto-dialog absolute z-50 pointer-events-none text-black text-[10px] 2xl:text-xs text-center font-bold px-3 py-2 md:px-4 md:py-2 outline-[#D7D140] outline-4 outline-dashed bg-white drop-shadow-md whitespace-nowrap"
+    >
+      Sigueme :)
+    </div>
+  </div>
 </section>
 <style>
   .social-link {
@@ -100,10 +107,12 @@ import { Instagram, Youtube, Github, Linkedin } from "@lucide/astro";
     text-underline-offset: 4px;
   }
 
-  .toto-popup {
+  .toto-container {
     position: absolute;
     bottom: -200px;
-    left: 0px;
+    width: 50px;
+    right: 100%;
+    left: 0;
     z-index: 0;
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -111,13 +120,13 @@ import { Instagram, Youtube, Github, Linkedin } from "@lucide/astro";
   }
 
   @media (min-width: 768px) {
-    .toto-popup {
+    .toto-container {
       right: 10px;
       width: 100px;
     }
 
     @media (min-width: 1536px) {
-      .toto-popup {
+      .toto-container {
         width: 120px;
       }
     }
@@ -141,9 +150,40 @@ import { Instagram, Youtube, Github, Linkedin } from "@lucide/astro";
     }
   }
 
-  section:has(a:hover) .toto-popup {
+  section:has(a:hover) .toto-container {
     bottom: -10px;
     opacity: 1;
+  }
+
+  section:has(a:hover) .toto-img {
     animation: wiggle-flipped 1.5s ease-in-out forwards 0.3s;
+  }
+
+  .toto-dialog {
+    opacity: 0;
+    transform: scale(0);
+    bottom: 80%;
+    right: 0;
+    left: 80%;
+    width: 100px;
+    transform-origin: bottom left;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 0s;
+  }
+
+  @media (min-width: 768px) {
+    .toto-dialog {
+      left: auto;
+      right: 0;
+      left: 80%;
+      bottom: 80%;
+      transform-origin: bottom right;
+    }
+  }
+
+  section:has(a:hover) .toto-dialog {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: 0.1s;
   }
 </style>

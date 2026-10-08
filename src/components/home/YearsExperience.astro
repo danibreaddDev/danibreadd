@@ -11,7 +11,7 @@ const { years = 2, href = "#" } = Astro.props;
   <!-- Número grande: anclado arriba a la derecha, desbordándose hacia abajo -->
   <div class="relative z-0 flex flex-col lg:flex-row px-5 pt-5 w-full">
     <p
-      class="text-sm font-semibold tracking-widest text-[#D7D140] uppercase leading-tight mt-2"
+      class="text-sm font-black tracking-widest text-[#D7D140] uppercase leading-tight mt-2"
     >
       Años de<br />Experiencia
     </p>
@@ -23,8 +23,8 @@ const { years = 2, href = "#" } = Astro.props;
         {years}
       </span>
       <span
-        class="text-[5rem]"
-        style="font-size: clamp(4rem, 10vw, 10rem); line-height: 1; letter-spacing: 0em;"
+        class="text-[5rem] font-black"
+        style="font-size: clamp(4rem, 5vw, 10rem); line-height: 1; letter-spacing: 0em;"
         >+</span
       >
     </div>
